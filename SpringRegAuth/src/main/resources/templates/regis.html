@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Регистрация</title>
+</head>
+<body>
+<div class="header">
+  <a href="/registration/" aria-current="page">Лечение пациента </a>
+  <a href="/registration/" aria-current="page">Медицинская карта</a>
+  <a href="/registration/" aria-current="page">Рецепты</a>
+  <a href="/registration/" aria-current="page">Список пациентов</a>
+  <a href="/registration/" aria-current="page">Лечение</a>
+  <a href="/registration/" aria-current="page">Счета</a>
+  <a href="/registration/" aria-current="page">Стоматологи</a>
+  <a href="/registration/" aria-current="page">Записи на приём</a>
+  <a href="/login/" style="background-color: #ea30f6">Авторизация</a>
+  <a href="/registration/" style="background-color: #ea30f6">Регистрация</a>
+</div>
+
+<h1>Регистрация</h1>
+<div th:if="${message}">
+  Пользователь уже существует
+</div>
+<form th:action="@{/registration}" method="post">
+  <div><label> Логин : <input type="text" name="username"/> </label></div>
+  <div><label> Пароль : <input type="password" name="password"/> </label></div>
+  <div><input type="submit" value="Регистрация"/></div>
+</form>
+</body>
+</html>

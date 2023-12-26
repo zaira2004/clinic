@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Список пациентов</title>
+</head>
+<body>
+<div class="header">
+    <a href="/patients/">Список пациентов</a>
+    <a href="/treatments/">Лечение</a>
+    <a href="/invoices/">Счета</a>
+    <a href="/dentists/">Стоматологи</a>
+    <a href="/appointments/">Записи на приём</a>
+    <a href="#">Авторизация</a>
+</div>
+
+<h1>Список пациентов</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ФИО</th>
+        <th>Телефон</th>
+    </tr>
+    <tr th:each="patient : ${patients}">
+        <td th:text="${patient.id}"></td>
+        <td th:text="${patient.name}"></td>
+        <td th:text="${patient.phoneNumber}"></td>
+        <td><a th:href="@{/patients/{id}(id=${patient.id})}">Подробнее</a></td>
+        <td><a th:href="@{/patients/{id}/edit(id=${patient.id})}">Редактировать</a></td>
+        <td><a th:href="@{/patients/{id}/delete(id=${patient.id})}">Удалить</a></td>
+    </tr>
+</table>
+<a href="/patients/create-patient">Создать пациента</a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Создать запись о враче</title>
+</head>
+<body>
+    <div class="header">
+        <a href="/patients/">Список пациентов</a>
+        <a href="/treatments/">Лечение</a>
+        <a href="/invoices/">Счета</a>
+        <a href="/dentists/">Стоматологи</a>
+        <a href="/appointments/">Записи на приём</a>
+        <a href="#">Авторизация</a>
+    </div>
+
+<h1>Создать запись о враче</h1>
+<form th:action="@{/dentists/create-dentist}" method="post" th:object="${dentist}">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required>
+
+    <label for="specialization">Специализация:</label>
+    <input type="text" id="specialization" name="specialization" th:field="*{specialization}" required>
+
+    <label for="licenseNumber">Лицензионный номер:</label>
+    <input type="text" id="licenseNumber" name="licenseNumber" th:field="*{licenseNumber}" required>
+
+    <label for="clinicName">Название клиники:</label>
+    <input type="text" id="clinicName" name="clinicName" th:field="*{clinicName}" required>
+
+    <button type="submit">Создать</button>
+</form>
+</body>
+</html>

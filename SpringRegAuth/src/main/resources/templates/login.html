@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Авторизация</title>
+</head>
+<body>
+<div class="header">
+  <a href="/patient-treatments/">Лечение пациента</a>
+  <a href="/medical-records/">Медицинская карта</a>
+  <a href="/prescriptions/">Рецепты</a>
+  <a href="/patients/">Список пациентов</a>
+  <a href="/treatments/">Лечение</a>
+  <a href="/invoices/">Счета</a>
+  <a href="/dentists/">Стоматологи</a>
+  <a href="/appointments/">Записи на приём</a>
+  <a href="/login/" style="background-color: #ea30f6">Авторизация</a>
+  <a href="/registration/" style="background-color: #ea30f6">Регистрация</a>
+</div>
+
+<h1>Авторизация</h1>
+<div th:if="${param.error}">
+  Неверное имя пользователя или пароль.
+</div>
+<form th:action="@{/login}" method="post">
+  <div><label> Логин : <input type="text" name="username"/> </label></div>
+  <div><label> Пароль : <input type="password" name="password"/> </label></div>
+  <div><input type="submit" value="Авторизация"/></div>
+</form>
+<a href="/registration">Регистрация</a>
+</body>
+</html>

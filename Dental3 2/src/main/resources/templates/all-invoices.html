@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Все счета</title>
+</head>
+<body>
+<div class="header">
+    <a href="/patients/">Список пациентов</a>
+    <a href="/treatments/">Лечение</a>
+    <a href="/invoices/">Счета</a>
+    <a href="/dentists/">Стоматологи</a>
+    <a href="/appointments/">Записи на приём</a>
+    <a href="#">Авторизация</a>
+</div>
+
+<h1>Все счета</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Пациент</th>
+        <th>Сумма</th>
+        <th>Оплачен</th>
+        <th>Действия</th>
+    </tr>
+    <tr th:each="invoice : ${invoices}">
+        <td th:text="${invoice.id}"></td>
+        <td th:text="${invoice.patientId}"></td>
+        <td th:text="${invoice.amount}"></td>
+        <td th:text="${invoice.isPaid}"></td>
+        <td>
+            <a th:href="@{/invoices/{id}(id=${invoice.id})}">Подробнее</a>
+            <a th:href="@{/invoices/{id}/edit(id=${invoice.id})}">Редактировать</a>
+            <a th:href="@{/invoices/{id}/delete(id=${invoice.id})}">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/invoices/create-invoice}" class="btn btn-primary">Создать счет</a>
+</body>
+</html>

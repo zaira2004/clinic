@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Редактирование счета</title>
+</head>
+<body>
+<div class="header">
+    <a href="/patients/">Список пациентов</a>
+    <a href="/treatments/">Лечение</a>
+    <a href="/invoices/">Счета</a>
+    <a href="/dentists/">Стоматологи</a>
+    <a href="/appointments/">Записи на приём</a>
+    <a href="#">Авторизация</a>
+</div>
+
+<h1>Редактирование счета</h1>
+<form th:action="@{/invoices/{id}/edit(id=${invoice.id})}" method="post" th:object="${invoice}">
+    <input type="hidden" id="id" name="id" th:field="*{id}">
+
+    <label for="patientId">Пациент:</label>
+    <input type="text" id="patientId" name="patientId" th:field="*{patientId}" required>
+
+    <label for="amount">Сумма:</label>
+    <input type="text" id="amount" name="amount" th:field="*{amount}" required>
+
+    <label for="isPaid">Оплачен:</label>
+    <input type="text" id="isPaid" name="isPaid" th:field="*{isPaid}" required>
+
+    <button type="submit">Сохранить</button>
+</form>
+<a th:href="@{/invoices/}" class="btn btn-primary">Вернуться к списку счетов</a>
+</body>
+</html>

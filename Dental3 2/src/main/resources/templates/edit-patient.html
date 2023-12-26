@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Редактирование пациента</title>
+</head>
+<body>
+<div class="header">
+  <a href="/patients/">Список пациентов</a>
+  <a href="/treatments/">Лечение</a>
+  <a href="/invoices/">Счета</a>
+  <a href="/dentists/">Стоматологи</a>
+  <a href="/appointments/">Записи на приём</a>
+  <a href="#">Авторизация</a>
+</div>
+
+<h1>Редактирование пациента</h1>
+
+<form th:action="@{/patients/{id}/edit(id=${patient.id})}" method="post" th:object="${patient}">
+  <input type="hidden" id="id" name="id" th:field="*{id}">
+  <label for="firstName">ФИО:</label>
+  <input type="text" id="firstName" name="firstName" th:field="*{name}" required>
+  <label for="phoneNumber">Возраст:</label>
+  <input type="text" id="age" name="age" th:field="*{age}" required>
+  <label for="address">Адрес проиживания:</label>
+  <input type="text" id="address" name="address" th:field="*{address}" required>
+
+  <label for="phoneNumber">Телефон:</label>
+  <input type="text" id="phoneNumber" name="phoneNumber" th:field="*{phoneNumber}" required>
+
+  <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

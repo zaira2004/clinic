@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Создание записи на приём</title>
+</head>
+<body>
+<div class="header">
+  <a href="/patients/">Список пациентов</a>
+  <a href="/treatments/">Лечение</a>
+  <a href="/invoices/">Счета</a>
+  <a href="/dentists/">Стоматологи</a>
+  <a href="/appointments/">Записи на приём</a>
+  <a href="#">Авторизация</a>
+</div>
+<h1>Создание записи на приём</h1>
+
+<form action="/appointments/create-appointment" method="post" th:object="${appointment}">
+  <div>
+    <label for="appointmentDateTime">Дата и время:</label>
+    <span th:if="${#fields.hasErrors('appointmentDateTime')}" th:errors="*{appointmentDateTime}"></span>
+    <input class="form-control" type="datetime-local" id="appointmentDateTime" th:field="*{appointmentDateTime}" required>
+  </div>
+  <div>
+    <label for="description">Описание:</label>
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" ></span>
+    <input class="form-control" type="text" id="description" th:field="*{description}" required>
+  </div>
+  <div>
+    <label for="duration">Продолжительность:</label>
+    <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}" ></span>
+    <input class="form-control" type="text" id="duration" th:field="*{duration}" required>
+  </div>
+  <br>
+  <div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+    <a href="/appointments/">Назад к записям на приём</a>
+  </div>
+</form>
+</body>
+</html>
