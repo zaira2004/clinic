@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Все стоматологи</title>
+</head>
+<body>
+<div class="header">
+  <a href="/people">Список пациентов</a> |
+  <a href="/treatments">Лечение</a> |
+  <a href="/invoices">Счета</a> |
+  <a href="/dentists">Стоматологи</a> |
+  <a href="/appointments">Записи на приём</a>
+</div>
+<h2 >Все стоматологи:</h2>
+<div th:each="dentist : ${dentists}">
+  <p>
+    <a th:href="@{/dentists/{id}(id=${dentist.getId()})}" th:text="${dentist.getName()}"></a>
+    <a th:href="@{/dentists/edit/{id}(id=${dentist.getId()})}">Изменить</a>
+    <a th:href="@{/dentists/delete/{id}(id=${dentist.getId()})}">Удалить</a>
+  </p>
+</div>
+<a th:href="@{/dentists/add}">Добавить запись</a>
+</body>
+</html>

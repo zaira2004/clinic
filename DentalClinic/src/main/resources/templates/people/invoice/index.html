@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <title>Все счетя для оплаты</title>
+</head>
+<body>
+<div class="header">
+  <a href="/people">Список пациентов</a> |
+  <a href="/treatments">Лечение</a> |
+  <a href="/invoices">Счета</a> |
+  <a href="/dentists">Стоматологи</a> |
+  <a href="/appointments">Записи на приём</a>
+</div>
+<h2>Пациенты и их счета оплаты:</h2>
+<div th:each="invoice : ${invoices}">
+  <a th:href="@{/invoices/{id}(id=${invoice.getId()})}" th:text="${invoice.getPatientId()}"></a>
+      <a th:href="@{/invoices/edit/{id}(id=${invoice.getId()})}">Изменить</a>
+      <a th:href="@{/invoices/delete/{id}(id=${invoice.getId()})}">Удалить</a>
+    </p>
+  </div>
+  <a th:href="@{/invoices/add}">Добавить счет</a>
+</div>
+</body>
+</html>

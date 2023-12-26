@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <title>Редактирование счета</title>
+</head>
+<body>
+<div class="header">
+  <a href="/people">Список пациентов</a> |
+  <a href="/treatments">Лечение</a> |
+  <a href="/invoices">Счета</a> |
+  <a href="/dentists">Стоматологи</a> |
+  <a href="/appointments">Записи на приём</a>
+</div>
+<h2>Редактирование счета</h2>
+<form action="/invoices/edit" method="post" th:object="${invoice}">
+  <input type="hidden" name="id" th:value="${invoice.id}" />
+
+  <label>Имя пациента:</label>
+  <input type="text" th:field="*{patientId}" placeholder="Имя пациента"><br>
+
+  <label>Сумма:</label>
+  <input type="text" th:field="*{amount}" placeholder="Сумма"><br>
+
+  <label>Статус оплаты:</label>
+  <input type="text" th:field="*{isPaid}" placeholder="Статус оплаты"><br>
+
+  <button type="submit" style="background-color: pink; color: white; border: none; padding: 5px 10px; text-align: center; border-radius: 5px; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; box-shadow: black;">Сохранить</button>
+</form>
+<a href="/invoices" style="text-decoration: none; background-color: grey; color: white; padding: 2px 7px; border-radius: 5px;">Назад</a>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Изменение записи</title>
+</head>
+<body>
+<div class="header">
+  <a href="/people">Список пациентов</a> |
+  <a href="/treatments">Лечение</a> |
+  <a href="/invoices">Счета</a> |
+  <a href="/dentists">Стоматологи</a> |
+  <a href="/appointments">Записи на приём</a>
+</div>
+<h2 >Изменение записи</h2>
+<form action="/appointments/edit" method="post" th:object="${appointment}">
+  <input type="hidden" name="id" th:value="${appointment.id}" />
+
+  <label>Дата:</label>
+  <input type="date" th:field="*{appointmentDate}" placeholder="Дата"><br>
+
+  <label>Пациент фио:</label>
+  <input type="text" th:field="*{patientId}" placeholder="ФИО пацента"><br>
+
+  <label>Стоматолог фио:</label>
+  <input type="text" th:field="*{dentistId}" placeholder="ФИО стоматолога"><br>
+
+
+  <button type="submit" style="background-color: pink; color: white; border: none; padding: 5px 10px; text-align: center; border-radius: 5px; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; box-shadow: black;">Изменить</button>
+</form>
+<a href="/appointments" style="text-decoration: none; background-color: gray; color: white; padding: 2px 7px; border-radius: 5px;">Назад</a>
+</body>
+</html>

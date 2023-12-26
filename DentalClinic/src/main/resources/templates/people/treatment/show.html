@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8">
+  <title>Информация о лечении</title>
+</head>
+<body>
+<div class="header">
+  <a href="/people">Список пациентов</a> |
+  <a href="/treatments">Лечение</a> |
+  <a href="/invoices">Счета</a> |
+  <a href="/dentists">Стоматологи</a> |
+  <a href="/appointments">Записи на приём</a>
+</div>
+<h2 >Информация о леченииях</h2>
+<p>ID: <span th:text="${treatment.id}"></span></p>
+<p>Наименование: <span th:text="${treatment.name}"></span></p>
+<p>Описание: <span th:text="${treatment.description}"></span></p>
+<p>Цена: <span th:text="${treatment.cost}"></span></p>
+</body>
+</html>

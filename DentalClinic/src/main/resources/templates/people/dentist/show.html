@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8">
+  <title>Информация о стоматологах</title>
+</head>
+<body>
+<div class="header">
+  <a href="/people">Список пациентов</a> |
+  <a href="/treatments">Лечение</a> |
+  <a href="/invoices">Счета</a> |
+  <a href="/dentists">Стоматологи</a> |
+  <a href="/appointments">Записи на приём</a>
+</div>
+
+<h2 >Информация о стоматологах</h2>
+<p>ID: <span th:text="${dentist.id}"></span></p>
+<p>ФИО: <span th:text="${dentist.name}"></span></p>
+<p>Специализация: <span th:text="${dentist.specialization}"></span></p>
+<p>Лицензия: <span th:text="${dentist.licenseNumber}"></span></p>
+</body>
+</html>
